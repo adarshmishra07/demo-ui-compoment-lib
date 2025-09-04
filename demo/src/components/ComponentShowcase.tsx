@@ -62,7 +62,7 @@ const ComponentShowcase: React.FC = () => {
 
 export function ButtonDemo() {
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-4">
       <div className="flex gap-3">
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
@@ -181,7 +181,7 @@ export function ModalDemo() {
         onClose={() => setIsOpen(false)}
         title="Demo Modal"
       >
-        <div className="space-y-4">
+        <div className="flex flex-col gap-4">
           <p>Modal content goes here...</p>
           <div className="flex justify-end gap-2">
             <Button variant="outline" onClick={() => setIsOpen(false)}>
@@ -203,7 +203,7 @@ export function ModalDemo() {
       description:
         "Contextual alerts with different variants and auto-dismiss functionality",
       component: (
-        <div className="space-y-4 max-w-md">
+        <div className="flex flex-col gap-4 max-w-md">
           <Button variant="outline" onClick={() => setShowAlert(true)}>
             <AlertTriangle className="mr-2 h-4 w-4" />
             Show Alert
@@ -234,7 +234,7 @@ export function AlertDemo() {
   const [showAlert, setShowAlert] = useState(false)
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-4">
       <Button onClick={() => setShowAlert(true)}>
         Show Alert
       </Button>

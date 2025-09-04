@@ -1,41 +1,61 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { Github, BookOpen, Heart, ExternalLink } from 'lucide-react'
-import { Button } from './LocalLibrary'
+import React from "react";
+import { motion } from "framer-motion";
+import { Github, BookOpen, Heart, ExternalLink } from "lucide-react";
+import { Button } from "./LocalLibrary";
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const links = {
     documentation: [
-      { name: 'Getting Started', href: '#installation' },
-      { name: 'Components', href: '#showcase' },
-      { name: 'Theming', href: '#' },
-      { name: 'Examples', href: '#' }
+      { name: "Getting Started", href: "#installation" },
+      { name: "Components", href: "#showcase" },
+      { name: "Theming", href: "#" },
+      { name: "Examples", href: "#" },
     ],
     community: [
-      { name: 'GitHub', href: 'https://github.com/yourusername/zyfai-ui-lib', external: true },
-      { name: 'Issues', href: 'https://github.com/yourusername/zyfai-ui-lib/issues', external: true },
-      { name: 'Discussions', href: 'https://github.com/yourusername/zyfai-ui-lib/discussions', external: true },
-      { name: 'Contributing', href: 'https://github.com/yourusername/zyfai-ui-lib/blob/main/CONTRIBUTING.md', external: true }
+      {
+        name: "GitHub",
+        href: "https://github.com/yourusername/zyfai-ui-lib",
+        external: true,
+      },
+      {
+        name: "Issues",
+        href: "https://github.com/yourusername/zyfai-ui-lib/issues",
+        external: true,
+      },
+      {
+        name: "Discussions",
+        href: "https://github.com/yourusername/zyfai-ui-lib/discussions",
+        external: true,
+      },
+      {
+        name: "Contributing",
+        href: "https://github.com/yourusername/zyfai-ui-lib/blob/main/CONTRIBUTING.md",
+        external: true,
+      },
     ],
     resources: [
-      { name: 'Changelog', href: '#' },
-      { name: 'Roadmap', href: '#' },
-      { name: 'License', href: '#' },
-      { name: 'NPM Package', href: 'https://npmjs.com/package/@zyfai/ui-lib', external: true }
-    ]
-  }
+      { name: "Changelog", href: "#" },
+      { name: "Roadmap", href: "#" },
+      { name: "License", href: "#" },
+      {
+        name: "NPM Package",
+        href: "https://npmjs.com/package/@zyfai/ui-lib",
+        external: true,
+      },
+    ],
+  };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer className="relative bg-black/40 border-t border-white/10 backdrop-blur-sm">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent -z-10" />
-      
+
       <div className="container mx-auto px-6 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -51,8 +71,9 @@ const Footer: React.FC = () => {
                 ZyFAi UI
               </h3>
               <p className="text-gray-300 mt-2 leading-relaxed">
-                Beautiful glassmorphism components for modern React applications. 
-                Built with TypeScript and optimized for performance.
+                Beautiful glassmorphism components for modern React
+                applications. Built with TypeScript and optimized for
+                performance.
               </p>
             </div>
 
@@ -62,7 +83,12 @@ const Footer: React.FC = () => {
                 variant="outline"
                 size="sm"
                 className="p-2"
-                onClick={() => window.open('https://github.com/yourusername/zyfai-ui-lib', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://github.com/yourusername/zyfai-ui-lib",
+                    "_blank"
+                  )
+                }
               >
                 <Github className="h-5 w-5" />
               </Button>
@@ -70,7 +96,7 @@ const Footer: React.FC = () => {
                 variant="outline"
                 size="sm"
                 className="p-2"
-                onClick={() => window.open('#', '_blank')}
+                onClick={() => window.open("#", "_blank")}
               >
                 <BookOpen className="h-5 w-5" />
               </Button>
@@ -85,17 +111,17 @@ const Footer: React.FC = () => {
             transition={{ delay: 0.1 }}
           >
             <h4 className="font-semibold text-white mb-4">Documentation</h4>
-            <ul className="space-y-3">
+            <ul className="flex flex-col gap-3">
               {links.documentation.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
                     className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group"
                     onClick={(e) => {
-                      if (link.href.startsWith('#')) {
-                        e.preventDefault()
-                        const element = document.querySelector(link.href)
-                        element?.scrollIntoView({ behavior: 'smooth' })
+                      if (link.href.startsWith("#")) {
+                        e.preventDefault();
+                        const element = document.querySelector(link.href);
+                        element?.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
                   >
@@ -115,13 +141,13 @@ const Footer: React.FC = () => {
             transition={{ delay: 0.2 }}
           >
             <h4 className="font-semibold text-white mb-4">Community</h4>
-            <ul className="space-y-3">
+            <ul className="flex flex-col gap-3">
               {links.community.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    target={link.external ? '_blank' : undefined}
-                    rel={link.external ? 'noopener noreferrer' : undefined}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
                     className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group"
                   >
                     {link.name}
@@ -142,13 +168,13 @@ const Footer: React.FC = () => {
             transition={{ delay: 0.3 }}
           >
             <h4 className="font-semibold text-white mb-4">Resources</h4>
-            <ul className="space-y-3">
+            <ul className="flex flex-col gap-3">
               {links.resources.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    target={link.external ? '_blank' : undefined}
-                    rel={link.external ? 'noopener noreferrer' : undefined}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
                     className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group"
                   >
                     {link.name}
@@ -203,16 +229,10 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={scrollToTop}
-            >
+            <Button variant="outline" size="sm" onClick={scrollToTop}>
               Back to top
             </Button>
-            <div className="text-gray-400 text-xs">
-              v1.0.0
-            </div>
+            <div className="text-gray-400 text-xs">v1.0.0</div>
           </div>
         </motion.div>
 
@@ -230,7 +250,7 @@ const Footer: React.FC = () => {
         </motion.button>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

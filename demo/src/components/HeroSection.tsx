@@ -30,7 +30,7 @@ const HeroSection: React.FC = () => {
 
       {/* Hero Content */}
       <motion.div
-        className="mx-auto px-6 py-20 relative z-10 space-y-8"
+        className="mx-auto px-6 py-20 relative z-10 flex flex-col gap-8"
         variants={staggerContainer}
         initial="initial"
         animate="animate"

@@ -3,6 +3,10 @@
 /* Import ZyFAi Component Library Styles from npm package */
 @import "am-zy-components/dist/style.css";
 
+* {
+  box-sizing: border-box;
+}
+
 /* Demo App Specific Styles Only - Using Component Library Theme Variables */
 html,
 body {
