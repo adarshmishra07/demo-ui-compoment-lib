@@ -58,12 +58,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zyfi/components"
+    "url": "https://github.com/adarshmishra07/demo-ui-compoment-lib"
   },
   "bugs": {
-    "url": "https://github.com/zyfi/components/issues"
+    "url": "https://github.com/adarshmishra07/demo-ui-compoment-lib/issues"
   },
-  "homepage": "https://github.com/zyfi/components#readme",
+  "homepage": "https://github.com/adarshmishra07/demo-ui-compoment-lib#readme",
   "dependencies": {
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.542.0"
