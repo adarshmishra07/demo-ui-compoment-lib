@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Github, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 import { Button } from "./LocalLibrary";
 
 import ParticleSystem from "./ParticleSystem";
@@ -105,21 +105,6 @@ const HeroSection: React.FC = () => {
               >
                 <BookOpen className="mr-2 h-5 w-5" />
                 View Components
-              </Button>
-
-              <Button
-                variant="outline"
-                size="lg"
-                className="px-6 py-4"
-                onClick={() =>
-                  window.open(
-                    "https://github.com/yourusername/zyfai-ui-lib",
-                    "_blank"
-                  )
-                }
-              >
-                <Github className="mr-2 h-5 w-5" />
-                GitHub
               </Button>
             </div>
           </motion.div>
