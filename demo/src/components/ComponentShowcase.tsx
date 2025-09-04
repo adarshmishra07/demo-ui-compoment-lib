@@ -147,7 +147,7 @@ export function CardDemo() {
             onClose={() => setShowModal(false)}
             title="Demo Modal"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 p-4">
               <p className="text-gray-300">
                 This is a beautiful modal with glassmorphism effects. It
                 includes smooth animations and proper accessibility features.
