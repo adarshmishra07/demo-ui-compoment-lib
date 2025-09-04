@@ -1,0 +1,214 @@
+/* ZyFAi Card Component - Glassmorphism Styling */
+
+/* === Base Card Styles === */
+.card {
+  /* Layout */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0; /* Allow flex children to shrink */
+  
+  /* Glassmorphism Base */
+  background: var(--zyfi-glass-bg);
+  border: 1px solid var(--zyfi-glass-border);
+  border-radius: var(--zyfi-radius-xl); /* 16px */
+  
+  /* Text */
+  color: var(--zyfi-text-primary);
+  font-family: inherit;
+  font-size: var(--zyfi-font-size-base);
+  line-height: var(--zyfi-line-height-normal);
+  text-align: left;
+  
+  /* Transitions for non-motion properties */
+  transition: 
+    background-color var(--zyfi-transition-base),
+    border-color var(--zyfi-transition-base),
+    backdrop-filter var(--zyfi-transition-base);
+  
+  /* Shadow for depth perception */
+  box-shadow: var(--zyfi-shadow-md);
+}
+
+/* === Elevation Variants === */
+.elevation-low {
+  backdrop-filter: var(--zyfi-backdrop-blur-sm);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-sm);
+  box-shadow: var(--zyfi-shadow-sm);
+}
+
+.elevation-medium {
+  backdrop-filter: var(--zyfi-backdrop-blur-md);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-md);
+  box-shadow: var(--zyfi-shadow-md);
+}
+
+.elevation-high {
+  backdrop-filter: var(--zyfi-backdrop-blur-lg);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-lg);
+  box-shadow: var(--zyfi-shadow-lg);
+}
+
+/* === Padding Variants === */
+.padding-sm {
+  padding: var(--zyfi-space-md); /* 12px */
+}
+
+.padding-md {
+  padding: var(--zyfi-space-lg); /* 16px */
+}
+
+.padding-lg {
+  padding: var(--zyfi-space-xl); /* 24px */
+}
+
+/* === Hover Effects === */
+.hover:hover {
+  background: var(--zyfi-glass-bg-hover);
+  border-color: var(--zyfi-glass-border-hover);
+  /* transform is handled by framer-motion hoverLift variant */
+  box-shadow: var(--zyfi-shadow-lg);
+}
+
+/* Enhanced hover for different elevations */
+.hover.elevation-low:hover {
+  backdrop-filter: var(--zyfi-backdrop-blur-md);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-md);
+  box-shadow: var(--zyfi-shadow-md);
+}
+
+.hover.elevation-medium:hover {
+  backdrop-filter: var(--zyfi-backdrop-blur-lg);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-lg);
+  box-shadow: var(--zyfi-shadow-lg);
+}
+
+.hover.elevation-high:hover {
+  background: var(--zyfi-glass-bg-active);
+  box-shadow: var(--zyfi-shadow-xl);
+}
+
+/* === Interactive Card Styles === */
+.interactive {
+  cursor: pointer;
+  outline: none;
+  transition: 
+    background-color var(--zyfi-transition-base),
+    border-color var(--zyfi-transition-base);
+}
+
+.interactive:hover {
+  background: var(--zyfi-glass-bg-hover);
+  border-color: var(--zyfi-glass-border-hover);
+  /* transform handled by framer-motion */
+}
+
+.interactive:active {
+  background: var(--zyfi-glass-bg-active);
+  /* transform handled by framer-motion */
+}
+
+.interactive:focus-visible {
+  outline: 2px solid var(--zyfi-accent);
+  outline-offset: 2px;
+  border-color: var(--zyfi-accent);
+}
+
+/* === Compound Component Styles === */
+.header {
+  display: flex;
+  align-items: center;
+  padding-bottom: var(--zyfi-space-md);
+  margin-bottom: var(--zyfi-space-md);
+  border-bottom: 1px solid var(--zyfi-glass-border);
+  font-weight: var(--zyfi-font-weight-semibold);
+  font-size: var(--zyfi-font-size-lg);
+  color: var(--zyfi-text-primary);
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: var(--zyfi-text-secondary);
+  line-height: var(--zyfi-line-height-relaxed);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--zyfi-space-sm);
+  padding-top: var(--zyfi-space-md);
+  margin-top: var(--zyfi-space-md);
+  border-top: 1px solid var(--zyfi-glass-border);
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .card {
+    border-radius: var(--zyfi-radius-lg); /* 12px on mobile */
+  }
+  
+  .padding-lg {
+    padding: var(--zyfi-space-lg); /* Reduce padding on mobile */
+  }
+  
+  .header {
+    font-size: var(--zyfi-font-size-base);
+  }
+}
+
+/* === Accessibility Enhancements === */
+@media (prefers-reduced-motion: reduce) {
+  /* Animations are handled by framer-motion with built-in reduced motion support */
+  .card,
+  .interactive {
+    transition: 
+      background-color var(--zyfi-transition-base),
+      border-color var(--zyfi-transition-base),
+      backdrop-filter var(--zyfi-transition-base);
+  }
+}
+
+/* === High Contrast Mode === */
+@media (prefers-contrast: high) {
+  .card {
+    border-width: 2px;
+    border-color: var(--zyfi-text-primary);
+  }
+  
+  .header,
+  .footer {
+    border-color: var(--zyfi-text-primary);
+  }
+  
+  .interactive:focus-visible {
+    outline-width: 3px;
+  }
+}
+
+/* === Dark Theme Specific Adjustments === */
+@media (prefers-color-scheme: dark) {
+  /* ZyFAi theme is already optimized for dark mode */
+  /* Additional dark mode specific adjustments if needed */
+}
+
+/* === Print Styles === */
+@media print {
+  .card {
+    background: white;
+    color: black;
+    border: 1px solid black;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  
+  .interactive:hover,
+  .hover:hover {
+    transform: none;
+    background: white;
+  }
+}

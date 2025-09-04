@@ -1,0 +1,299 @@
+/* Modal Backdrop - Glassmorphism Overlay */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--zyfi-z-modal-backdrop);
+  
+  /* Dark semi-transparent background */
+  background: rgba(0, 0, 0, 0.6);
+  
+  /* Glassmorphism backdrop blur */
+  backdrop-filter: var(--zyfi-backdrop-blur-md);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-md);
+  
+  /* Flexbox centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--zyfi-space-lg);
+  
+  /* Animation handled by framer-motion modalBackdrop variant */
+}
+
+/* Modal Container */
+.modal {
+  position: relative;
+  z-index: var(--zyfi-z-modal);
+  
+  /* Strong glassmorphism effect for modal content */
+  background: var(--zyfi-glass-bg);
+  border: 1px solid var(--zyfi-glass-border);
+  backdrop-filter: var(--zyfi-backdrop-blur-lg);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-lg);
+  
+  /* Rounded corners and shadow */
+  border-radius: var(--zyfi-radius-xl);
+  box-shadow: var(--zyfi-shadow-xl);
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: calc(100vh - var(--zyfi-space-2xl));
+  overflow: hidden;
+  
+  /* Colors */
+  color: var(--zyfi-text-primary);
+  
+  /* Animation handled by framer-motion modalEnter/modalMobileSlide variants */
+}
+
+/* Modal visible state - handled by framer-motion */
+
+/* Modal Size Variants */
+.modal.size-sm {
+  max-width: 400px;
+}
+
+.modal.size-md {
+  max-width: 600px;
+}
+
+.modal.size-lg {
+  max-width: 800px;
+}
+
+/* Modal Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--zyfi-space-lg);
+  
+  padding: var(--zyfi-space-xl) var(--zyfi-space-xl) var(--zyfi-space-lg);
+  
+  /* Glass border bottom */
+  border-bottom: 1px solid var(--zyfi-glass-border);
+  
+  /* Prevent shrinking */
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: var(--zyfi-font-size-lg);
+  font-weight: var(--zyfi-font-weight-semibold);
+  line-height: var(--zyfi-line-height-tight);
+  color: var(--zyfi-text-primary);
+  margin: 0;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Sizing */
+  width: 2rem;
+  height: 2rem;
+  
+  /* Reset button styles */
+  border: none;
+  background: none;
+  cursor: pointer;
+  
+  /* Colors */
+  color: var(--zyfi-text-secondary);
+  
+  /* Glass effect on hover */
+  border-radius: var(--zyfi-radius-md);
+  transition: 
+    background-color var(--zyfi-transition-fast),
+    color var(--zyfi-transition-fast);
+  
+  /* Focus ring */
+  outline: none;
+  outline-offset: 2px;
+}
+
+.closeButton:hover {
+  background: var(--zyfi-glass-bg-hover);
+  color: var(--zyfi-text-primary);
+  /* transform handled by framer-motion */
+}
+
+.closeButton:active {
+  background: var(--zyfi-glass-bg-active);
+  /* transform handled by framer-motion */
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid var(--zyfi-accent);
+}
+
+.closeIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 2;
+}
+
+/* Modal Body */
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--zyfi-space-lg) var(--zyfi-space-xl);
+  
+  /* Custom scrollbar for webkit browsers */
+  scrollbar-width: thin;
+  scrollbar-color: var(--zyfi-glass-border) transparent;
+}
+
+.body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.body::-webkit-scrollbar-thumb {
+  background: var(--zyfi-glass-border);
+  border-radius: var(--zyfi-radius-sm);
+}
+
+.body::-webkit-scrollbar-thumb:hover {
+  background: var(--zyfi-glass-border-hover);
+}
+
+/* Modal Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--zyfi-space-md);
+  
+  padding: var(--zyfi-space-lg) var(--zyfi-space-xl) var(--zyfi-space-xl);
+  
+  /* Glass border top */
+  border-top: 1px solid var(--zyfi-glass-border);
+  
+  /* Prevent shrinking */
+  flex-shrink: 0;
+}
+
+/* Animations */
+/* Animations handled by framer-motion */
+
+/* Mobile Responsive Design */
+@media (max-width: 640px) {
+  .backdrop {
+    padding: var(--zyfi-space-md);
+    align-items: flex-end;
+  }
+  
+  .modal {
+    max-height: calc(100vh - var(--zyfi-space-lg));
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    /* transform handled by framer-motion modalMobileSlide variant */
+  }
+  
+  .modal.size-sm,
+  .modal.size-md,
+  .modal.size-lg {
+    max-width: 100%;
+  }
+  
+  .header {
+    padding: var(--zyfi-space-lg) var(--zyfi-space-lg) var(--zyfi-space-md);
+  }
+  
+  .body {
+    padding: var(--zyfi-space-md) var(--zyfi-space-lg);
+  }
+  
+  .footer {
+    padding: var(--zyfi-space-md) var(--zyfi-space-lg) var(--zyfi-space-lg);
+    flex-direction: column-reverse;
+  }
+  
+  .footer > * {
+    width: 100%;
+  }
+}
+
+/* Large screens - center alignment */
+@media (min-width: 1024px) {
+  .backdrop {
+    padding: var(--zyfi-space-2xl);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .modal {
+    border-width: 2px;
+    border-color: var(--zyfi-glass-border-hover);
+  }
+  
+  .header,
+  .footer {
+    border-color: var(--zyfi-glass-border-hover);
+  }
+  
+  .closeButton:focus-visible {
+    outline-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  /* Animations are handled by framer-motion with built-in reduced motion support */
+  .closeButton {
+    transition: 
+      background-color var(--zyfi-transition-fast),
+      color var(--zyfi-transition-fast);
+  }
+}
+
+/* Focus ring utilities for modal content */
+.modal :global(.zyfi-focus-ring:focus-visible) {
+  outline: 2px solid var(--zyfi-accent);
+  outline-offset: 2px;
+}
+
+/* Improve text readability in modal */
+.body p {
+  line-height: var(--zyfi-line-height-relaxed);
+  margin-bottom: var(--zyfi-space-md);
+}
+
+.body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Header title responsive sizing */
+@media (max-width: 480px) {
+  .title {
+    font-size: var(--zyfi-font-size-base);
+  }
+}
+
+/* Glass effect enhancement on hover for interactive elements */
+.modal *:is(button, input, textarea, select):not(.closeButton) {
+  transition: all var(--zyfi-transition-fast);
+}
+
+.modal *:is(button, input, textarea, select):hover:not(:disabled) {
+  background: var(--zyfi-glass-bg-hover);
+}
+
+/* Ensure proper stacking for nested elements */
+.header,
+.body,
+.footer {
+  position: relative;
+  z-index: 1;
+}

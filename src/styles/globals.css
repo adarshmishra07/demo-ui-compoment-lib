@@ -1,0 +1,273 @@
+/* ZyFAi Component Library - Global Styles */
+
+/* ZyFAi Design Tokens - Always available */
+:root {
+  /* Brand Colors */
+  --zyfi-primary: #6c5ce7;
+  --zyfi-primary-hover: #5a4bd4;
+  --zyfi-primary-active: #4834c2;
+  --zyfi-primary-foreground: #ffffff;
+  --zyfi-primary-disabled: rgba(108, 92, 231, 0.4);
+
+  --zyfi-secondary: #4b0082;
+  --zyfi-secondary-hover: #3d0069;
+  --zyfi-secondary-active: #2f0050;
+  --zyfi-secondary-foreground: #e5e5e5;
+  --zyfi-secondary-disabled: rgba(75, 0, 130, 0.4);
+
+  --zyfi-accent: #6495ed;
+  --zyfi-accent-hover: #4169e1;
+  --zyfi-accent-active: #1e90ff;
+  --zyfi-accent-foreground: #e5e5e5;
+  --zyfi-accent-disabled: rgba(100, 149, 237, 0.4);
+
+  /* Background Layers */
+  --zyfi-bg-primary: #1a1d23;
+  --zyfi-bg-secondary: #1e2128;
+  --zyfi-bg-tertiary: #22252d;
+  --zyfi-bg-elevated: #262931;
+
+  /* Glassmorphism Effects */
+  --zyfi-glass-bg: rgba(255, 255, 255, 0.05);
+  --zyfi-glass-bg-hover: rgba(255, 255, 255, 0.08);
+  --zyfi-glass-bg-active: rgba(255, 255, 255, 0.12);
+  --zyfi-glass-border: rgba(255, 255, 255, 0.1);
+  --zyfi-glass-border-hover: rgba(255, 255, 255, 0.15);
+
+  /* Text Colors */
+  --zyfi-text-primary: #e5e5e5;
+  --zyfi-text-secondary: #b0b0b0;
+  --zyfi-text-muted: #808080;
+  --zyfi-text-inverse: #1a1d23;
+
+  /* Semantic Colors */
+  --zyfi-success: #26d962;
+  --zyfi-success-bg: rgba(38, 217, 98, 0.1);
+  --zyfi-success-border: rgba(38, 217, 98, 0.2);
+
+  --zyfi-warning: #f3a13f;
+  --zyfi-warning-bg: rgba(243, 161, 63, 0.1);
+  --zyfi-warning-border: rgba(243, 161, 63, 0.2);
+
+  --zyfi-error: #f25a67;
+  --zyfi-error-bg: rgba(242, 90, 103, 0.1);
+  --zyfi-error-border: rgba(242, 90, 103, 0.2);
+
+  --zyfi-info: var(--zyfi-accent);
+  --zyfi-info-bg: rgba(101, 126, 255, 0.1);
+  --zyfi-info-border: rgba(101, 126, 255, 0.2);
+
+  /* Backdrop Blur Utilities */
+  --zyfi-backdrop-blur-sm: blur(4px);
+  --zyfi-backdrop-blur-md: blur(8px);
+  --zyfi-backdrop-blur-lg: blur(16px);
+
+  /* Design Tokens - Spacing */
+  --zyfi-space-xs: 0.25rem;
+  --zyfi-space-sm: 0.5rem;
+  --zyfi-space-md: 0.75rem;
+  --zyfi-space-lg: 1rem;
+  --zyfi-space-xl: 1.5rem;
+  --zyfi-space-2xl: 2rem;
+
+  /* Design Tokens - Border Radius */
+  --zyfi-radius-sm: 0.25rem;
+  --zyfi-radius-md: 0.375rem;
+  --zyfi-radius-lg: 0.5rem;
+  --zyfi-radius-xl: 0.75rem;
+  --zyfi-radius-2xl: 1rem;
+
+  /* Design Tokens - Typography */
+  --zyfi-font-size-xs: 0.75rem;
+  --zyfi-font-size-sm: 0.875rem;
+  --zyfi-font-size-base: 1rem;
+  --zyfi-font-size-lg: 1.125rem;
+  --zyfi-font-size-xl: 1.25rem;
+
+  --zyfi-font-weight-normal: 400;
+  --zyfi-font-weight-medium: 500;
+  --zyfi-font-weight-semibold: 600;
+  --zyfi-font-weight-bold: 700;
+
+  --zyfi-line-height-tight: 1.25;
+  --zyfi-line-height-normal: 1.5;
+  --zyfi-line-height-relaxed: 1.625;
+
+  /* Design Tokens - Shadows */
+  --zyfi-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --zyfi-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --zyfi-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --zyfi-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Design Tokens - Transitions */
+  --zyfi-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --zyfi-transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Design Tokens - Z-Index */
+  --zyfi-z-modal-backdrop: 1000;
+  --zyfi-z-modal: 1001;
+}
+
+/* CSS Reset and base styles - Scoped to ZyFAi components only */
+.zyfi-components,
+.zyfi-components *,
+.zyfi-components *::before,
+.zyfi-components *::after {
+  box-sizing: border-box;
+}
+
+.zyfi-components * {
+  margin: 0;
+}
+
+.zyfi-components img,
+.zyfi-components picture,
+.zyfi-components video,
+.zyfi-components canvas,
+.zyfi-components svg {
+  display: block;
+  max-width: 100%;
+}
+
+.zyfi-components input,
+.zyfi-components button,
+.zyfi-components textarea,
+.zyfi-components select {
+  font: inherit;
+}
+
+.zyfi-components p,
+.zyfi-components h1,
+.zyfi-components h2,
+.zyfi-components h3,
+.zyfi-components h4,
+.zyfi-components h5,
+.zyfi-components h6 {
+  overflow-wrap: break-word;
+}
+
+/* Focus styles for accessibility - Scoped to ZyFAi components */
+.zyfi-components :focus {
+  outline: 2px solid var(--zyfi-accent);
+  outline-offset: 2px;
+}
+
+.zyfi-components :focus:not(:focus-visible) {
+  outline: none;
+}
+
+.zyfi-components :focus-visible {
+  outline: 2px solid var(--zyfi-accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preferences - Scoped to ZyFAi components */
+@media (prefers-reduced-motion: reduce) {
+  .zyfi-components,
+  .zyfi-components *,
+  .zyfi-components *::before,
+  .zyfi-components *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Enhanced Font Settings */
+.zyfi-components {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism Utility Classes */
+.glass {
+  background: var(--zyfi-glass-bg);
+  border: 1px solid var(--zyfi-glass-border);
+  backdrop-filter: var(--zyfi-backdrop-blur-md);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-md);
+}
+
+.glass-sm {
+  background: var(--zyfi-glass-bg);
+  border: 1px solid var(--zyfi-glass-border);
+  backdrop-filter: var(--zyfi-backdrop-blur-sm);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-sm);
+}
+
+.glass-lg {
+  background: var(--zyfi-glass-bg);
+  border: 1px solid var(--zyfi-glass-border);
+  backdrop-filter: var(--zyfi-backdrop-blur-lg);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-lg);
+}
+
+.glass:hover {
+  background: var(--zyfi-glass-bg-hover);
+  border-color: var(--zyfi-glass-border-hover);
+}
+
+.glass:active {
+  background: var(--zyfi-glass-bg-active);
+}
+
+/* Theme Application */
+.zyfi-theme-dark {
+  background-color: var(--zyfi-bg-primary);
+  color: var(--zyfi-text-primary);
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Custom scrollbar - Scoped to ZyFAi components */
+.zyfi-components ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.zyfi-components ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.zyfi-components ::-webkit-scrollbar-thumb {
+  background: var(--zyfi-accent);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+.zyfi-components ::-webkit-scrollbar-thumb:hover {
+  opacity: 0.7;
+}
+
+/* Selection styling - Scoped to ZyFAi components */
+.zyfi-components ::selection {
+  background: rgba(79, 70, 229, 0.3);
+  color: #fff;
+}
+

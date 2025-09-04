@@ -1,0 +1,358 @@
+/* Button Component Styles - ZyFAi Glassmorphism Design System */
+
+.button {
+  /* Base button styles */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--zyfi-space-sm);
+  
+  /* Typography */
+  font-family: inherit;
+  font-weight: var(--zyfi-font-weight-medium);
+  line-height: var(--zyfi-line-height-tight);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  
+  /* Interaction */
+  cursor: pointer;
+  border: none;
+  outline: none;
+  
+  /* Transitions */
+  transition: 
+    background-color var(--zyfi-transition-fast),
+    border-color var(--zyfi-transition-fast),
+    color var(--zyfi-transition-fast),
+    box-shadow var(--zyfi-transition-fast),
+    transform var(--zyfi-transition-fast),
+    backdrop-filter var(--zyfi-transition-fast);
+  
+  /* Glassmorphism base */
+  backdrop-filter: var(--zyfi-backdrop-blur-md);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-md);
+  border-radius: var(--zyfi-radius-lg);
+  
+  /* Accessibility - Focus ring */
+  &:focus-visible {
+    outline: 2px solid var(--zyfi-accent);
+    outline-offset: 2px;
+    box-shadow: 
+      0 0 0 2px var(--zyfi-bg-primary),
+      0 0 0 4px var(--zyfi-accent),
+      var(--zyfi-shadow-md);
+  }
+  
+  /* Hover effects */
+  &:hover:not(.disabled):not(.loading) {
+    transform: translateY(-1px);
+    box-shadow: var(--zyfi-shadow-lg);
+  }
+  
+  /* Active state */
+  &:active:not(.disabled):not(.loading) {
+    transform: translateY(0);
+    transition-duration: 75ms;
+  }
+}
+
+/* === SIZE VARIANTS === */
+.size-sm {
+  height: 28px;
+  padding: 0 var(--zyfi-space-md);
+  font-size: var(--zyfi-font-size-xs);
+  border-radius: var(--zyfi-radius-md);
+  
+  .leftIcon,
+  .rightIcon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .spinner {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.size-md {
+  height: 36px;
+  padding: 0 var(--zyfi-space-lg);
+  font-size: var(--zyfi-font-size-sm);
+  
+  .leftIcon,
+  .rightIcon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .spinner {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.size-lg {
+  height: 44px;
+  padding: 0 var(--zyfi-space-xl);
+  font-size: var(--zyfi-font-size-base);
+  
+  .leftIcon,
+  .rightIcon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .spinner {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* === VARIANT STYLES === */
+
+/* Primary Variant - Purple primary with glassmorphism */
+.variant-primary {
+  background: linear-gradient(
+    135deg,
+    var(--zyfi-primary) 0%,
+    var(--zyfi-primary-hover) 100%
+  );
+  color: var(--zyfi-primary-foreground);
+  border: 1px solid var(--zyfi-primary);
+  box-shadow: 
+    var(--zyfi-shadow-md),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  &:hover:not(.disabled):not(.loading) {
+    background: linear-gradient(
+      135deg,
+      var(--zyfi-primary-hover) 0%,
+      var(--zyfi-primary-active) 100%
+    );
+    border-color: var(--zyfi-primary-hover);
+    box-shadow: 
+      var(--zyfi-shadow-lg),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+  
+  &:active:not(.disabled):not(.loading) {
+    background: var(--zyfi-primary-active);
+    border-color: var(--zyfi-primary-active);
+    box-shadow: 
+      var(--zyfi-shadow-md),
+      inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Secondary Variant - Dark purple secondary with glassmorphism */
+.variant-secondary {
+  background: linear-gradient(
+    135deg,
+    var(--zyfi-secondary) 0%,
+    var(--zyfi-secondary-hover) 100%
+  );
+  color: var(--zyfi-secondary-foreground);
+  border: 1px solid var(--zyfi-secondary);
+  box-shadow: 
+    var(--zyfi-shadow-sm),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  
+  &:hover:not(.disabled):not(.loading) {
+    background: linear-gradient(
+      135deg,
+      var(--zyfi-secondary-hover) 0%,
+      var(--zyfi-secondary-active) 100%
+    );
+    border-color: var(--zyfi-secondary-hover);
+    color: var(--zyfi-secondary-foreground);
+    box-shadow: 
+      var(--zyfi-shadow-md),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  &:active:not(.disabled):not(.loading) {
+    background: var(--zyfi-secondary-active);
+    border-color: var(--zyfi-secondary-active);
+    box-shadow: 
+      var(--zyfi-shadow-sm),
+      inset 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Outline Variant - Accent border with hover fill */
+.variant-outline {
+  background: transparent;
+  color: var(--zyfi-accent);
+  border: 1px solid var(--zyfi-accent);
+  
+  &:hover:not(.disabled):not(.loading) {
+    background: var(--zyfi-accent);
+    color: var(--zyfi-accent-foreground);
+    border-color: var(--zyfi-accent-hover);
+    backdrop-filter: var(--zyfi-backdrop-blur-md);
+    -webkit-backdrop-filter: var(--zyfi-backdrop-blur-md);
+    box-shadow: var(--zyfi-shadow-sm);
+  }
+  
+  &:active:not(.disabled):not(.loading) {
+    background: var(--zyfi-accent-active);
+    color: var(--zyfi-accent-foreground);
+    border-color: var(--zyfi-accent-active);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* === STATE STYLES === */
+
+/* Disabled State */
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  
+  &.variant-primary {
+    background: var(--zyfi-primary-disabled);
+    border-color: var(--zyfi-primary-disabled);
+    color: var(--zyfi-primary-foreground);
+    box-shadow: none;
+  }
+  
+  &.variant-secondary {
+    background: var(--zyfi-secondary-disabled);
+    border-color: var(--zyfi-secondary-disabled);
+    color: var(--zyfi-secondary-foreground);
+    box-shadow: none;
+  }
+  
+  &.variant-outline {
+    background: transparent;
+    border-color: var(--zyfi-accent-disabled);
+    color: var(--zyfi-accent-disabled);
+  }
+}
+
+/* Loading State */
+.loading {
+  cursor: wait;
+  
+  .content {
+    opacity: 0;
+  }
+}
+
+/* Full Width */
+.fullWidth {
+  width: 100%;
+}
+
+/* === ICON STYLES === */
+.leftIcon,
+.rightIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.leftIcon {
+  margin-left: calc(-1 * var(--zyfi-space-xs));
+}
+
+.rightIcon {
+  margin-right: calc(-1 * var(--zyfi-space-xs));
+}
+
+/* === SPINNER STYLES === */
+.spinner {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinnerIcon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* === CONTENT WRAPPER === */
+.content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--zyfi-transition-fast);
+}
+
+/* === ACCESSIBILITY & MOTION PREFERENCES === */
+
+/* Respect reduced motion preference - framer-motion handles this automatically */
+@media (prefers-reduced-motion: reduce) {
+  /* Animations are handled by framer-motion with built-in reduced motion support */
+  .button {
+    transition: 
+      background-color var(--zyfi-transition-fast),
+      border-color var(--zyfi-transition-fast),
+      color var(--zyfi-transition-fast),
+      backdrop-filter var(--zyfi-transition-fast);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .button {
+    border-width: 2px;
+  }
+  
+  .variant-primary {
+    background: var(--zyfi-accent);
+    border-color: var(--zyfi-accent);
+  }
+  
+  .variant-secondary,
+  .variant-outline {
+    border-color: var(--zyfi-text-primary);
+  }
+  
+  .button:focus-visible {
+    outline-width: 3px;
+    outline-offset: 3px;
+  }
+}
+
+/* Forced colors mode (Windows High Contrast) */
+@media (forced-colors: active) {
+  .button {
+    border: 2px solid ButtonBorder;
+    background: ButtonFace;
+    color: ButtonText;
+  }
+  
+  .button:hover,
+  .button:focus {
+    border-color: Highlight;
+    background: Highlight;
+    color: HighlightText;
+  }
+  
+  .button:disabled {
+    border-color: GrayText;
+    background: ButtonFace;
+    color: GrayText;
+  }
+}

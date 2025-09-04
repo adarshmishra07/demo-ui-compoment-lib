@@ -1,0 +1,280 @@
+/* ZyFAi Alert Component Styles */
+
+.alert {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--zyfi-space-md);
+  padding: var(--zyfi-space-lg);
+  border-radius: var(--zyfi-radius-lg);
+  font-size: var(--zyfi-font-size-sm);
+  line-height: var(--zyfi-line-height-normal);
+  
+  /* Glassmorphism base styling */
+  background: var(--zyfi-glass-bg);
+  border: 1px solid var(--zyfi-glass-border);
+  backdrop-filter: var(--zyfi-backdrop-blur-md);
+  -webkit-backdrop-filter: var(--zyfi-backdrop-blur-md);
+  
+  /* Box shadow for depth */
+  box-shadow: var(--zyfi-shadow-sm);
+  
+  /* Smooth transitions */
+  transition: 
+    background-color var(--zyfi-transition-base),
+    border-color var(--zyfi-transition-base),
+    box-shadow var(--zyfi-transition-base);
+}
+
+.alert:hover {
+  background: var(--zyfi-glass-bg-hover);
+  border-color: var(--zyfi-glass-border-hover);
+}
+
+/* Content layout */
+.content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--zyfi-space-md);
+  flex: 1;
+  min-width: 0; /* Prevent text overflow issues */
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: var(--zyfi-space-xs); /* Align with text baseline */
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.messageWrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: var(--zyfi-font-size-base);
+  font-weight: var(--zyfi-font-weight-semibold);
+  line-height: var(--zyfi-line-height-tight);
+  margin-bottom: var(--zyfi-space-xs);
+  color: var(--zyfi-text-primary);
+}
+
+.message {
+  color: var(--zyfi-text-secondary);
+  line-height: var(--zyfi-line-height-normal);
+}
+
+/* Dismiss button */
+.dismissButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  margin: 0;
+  margin-top: var(--zyfi-space-xs); /* Align with icon */
+  background: transparent;
+  border: none;
+  border-radius: var(--zyfi-radius-sm);
+  color: var(--zyfi-text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  
+  /* Glassmorphism hover effect */
+  transition: 
+    background-color var(--zyfi-transition-fast),
+    color var(--zyfi-transition-fast),
+    transform var(--zyfi-transition-fast);
+}
+
+.dismissButton:hover {
+  background: var(--zyfi-glass-bg-hover);
+  color: var(--zyfi-text-secondary);
+  transform: scale(1.05);
+}
+
+.dismissButton:active {
+  background: var(--zyfi-glass-bg-active);
+  transform: scale(0.98);
+}
+
+.dismissButton:focus-visible {
+  outline: 2px solid var(--zyfi-accent);
+  outline-offset: 2px;
+}
+
+.dismissIcon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+/* Dismissible alert cursor */
+.dismissible {
+  cursor: default;
+}
+
+/* Semantic variant styles */
+.variant-success {
+  background: var(--zyfi-success-bg);
+  border-color: var(--zyfi-success-border);
+  color: var(--zyfi-text-primary);
+}
+
+.variant-success:hover {
+  background: rgba(38, 217, 98, 0.15);
+  border-color: rgba(38, 217, 98, 0.25);
+}
+
+.variant-success .icon,
+.variant-success .title {
+  color: var(--zyfi-success);
+}
+
+.variant-warning {
+  background: var(--zyfi-warning-bg);
+  border-color: var(--zyfi-warning-border);
+  color: var(--zyfi-text-primary);
+}
+
+.variant-warning:hover {
+  background: rgba(243, 161, 63, 0.15);
+  border-color: rgba(243, 161, 63, 0.25);
+}
+
+.variant-warning .icon,
+.variant-warning .title {
+  color: var(--zyfi-warning);
+}
+
+.variant-error {
+  background: var(--zyfi-error-bg);
+  border-color: var(--zyfi-error-border);
+  color: var(--zyfi-text-primary);
+}
+
+.variant-error:hover {
+  background: rgba(242, 90, 103, 0.15);
+  border-color: rgba(242, 90, 103, 0.25);
+}
+
+.variant-error .icon,
+.variant-error .title {
+  color: var(--zyfi-error);
+}
+
+.variant-info {
+  background: var(--zyfi-info-bg);
+  border-color: var(--zyfi-info-border);
+  color: var(--zyfi-text-primary);
+}
+
+.variant-info:hover {
+  background: rgba(101, 126, 255, 0.15);
+  border-color: rgba(101, 126, 255, 0.25);
+}
+
+.variant-info .icon,
+.variant-info .title {
+  color: var(--zyfi-info);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .alert {
+    border-width: 2px;
+  }
+  
+  .variant-success {
+    border-color: var(--zyfi-success);
+  }
+  
+  .variant-warning {
+    border-color: var(--zyfi-warning);
+  }
+  
+  .variant-error {
+    border-color: var(--zyfi-error);
+  }
+  
+  .variant-info {
+    border-color: var(--zyfi-info);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .alert {
+    transition: none;
+  }
+  
+  .dismissButton {
+    transition: none;
+  }
+  
+  .dismissButton:hover {
+    transform: none;
+  }
+  
+  .dismissButton:active {
+    transform: none;
+  }
+}
+
+/* Focus ring for keyboard navigation */
+.alert:focus-visible {
+  outline: 2px solid var(--zyfi-accent);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .alert {
+    padding: var(--zyfi-space-md);
+    gap: var(--zyfi-space-sm);
+  }
+  
+  .content {
+    gap: var(--zyfi-space-sm);
+  }
+  
+  .icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .title {
+    font-size: var(--zyfi-font-size-sm);
+  }
+  
+  .message {
+    font-size: var(--zyfi-font-size-xs);
+  }
+}
+
+/* Animation utilities for staggered alerts */
+.alert + .alert {
+  margin-top: var(--zyfi-space-md);
+}
+
+/* Print styles */
+@media print {
+  .alert {
+    background: transparent;
+    border: 1px solid #ccc;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+  }
+  
+  .dismissButton {
+    display: none;
+  }
+}

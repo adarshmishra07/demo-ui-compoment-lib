@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Import ZyFAi Component Library Styles from npm package */
+@import "am-zy-components/dist/style.css";
+
+/* Demo App Specific Styles Only - Using Component Library Theme Variables */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--zyfi-bg-primary, #1a1d23);
+  color: var(--zyfi-text-primary, #e5e5e5);
+  overflow-x: hidden;
+}
+
+/* Apply ZyFAi component styling to the root */
+#root {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
